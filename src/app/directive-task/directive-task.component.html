@@ -1,0 +1,168 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+/>
+
+<div class="form-bg">
+  <div class="container" *ngIf="loginprocess">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4 col-sm-offset-3 col-sm-6">
+        <div class="form-container">
+          <h3 class="title">Sign in</h3>
+          <form class="form-horizontal">
+            <div class="form-icon">
+              <i class="fa fa-user-circle"></i>
+            </div>
+            <div class="form-group">
+              <span class="input-icon"><i class="fa fa-user"></i></span>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Username"
+                name="username"
+                [(ngModel)]="username"
+              />
+            </div>
+            <div class="form-group">
+              <span class="input-icon"><i class="fa fa-lock"></i></span>
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                name="password"
+                [(ngModel)]="password"
+              />
+            </div>
+            <button class="btn signin" (click)="LoginUser()">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<body class="my-login-page" *ngIf="!loginprocess">
+  <section class="h-100">
+    <div class="container h-100">
+      <div class="row justify-content-md-center h-100">
+        <div class="card-wrapper">
+          <div class="card fat">
+            <div class="card-body" style="width: 200px">
+              <h4 class="card-title">
+                Foods
+                <img
+                  style="position: relative; top: 0px"
+                  src="https://img.icons8.com/fluency/43/null/hamburger.png"
+                />
+              </h4>
+              <h4 class="card-title-right">
+                Drinks
+                <img
+                  src="https://img.icons8.com/arcade/43/null/soda-can.png"
+                  style="position: relative; bottom: 6px"
+                />
+              </h4>
+              <h4 class="header-right">Drinks Name:</h4>
+              <div class="radio-btn row">
+                <ul>
+                  <li>
+                    <input
+                      type="radio"
+                      id="box-1"
+                      name="Drink"
+                      (click)="DisplayDrink(1)"
+                    />
+                    <label for="f-option">Cola</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="box-1"
+                      name="Drink"
+                      (click)="DisplayDrink(2)"
+                    />
+                    <label for="f-option">Fuse Tea</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="box-2"
+                      name="Drink"
+                      (click)="DisplayDrink(3)"
+                    />
+                    <label for="s-option">Sprite</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="box-3"
+                      name="Drink"
+                      (click)="DisplayDrink(4)"
+                    />
+                    <label for="t-option">Fanta</label>
+                  </li>
+                </ul>
+
+                <div
+                  class="drink-icons"
+                  style="position: absolute; transform: translate(400px, 30px)"
+                  [ngSwitch]="Drinks"
+                >
+                  <div *ngSwitchCase="'1.Drink'">
+                    <img
+                      src="https://www.dramalietmangal.com/wp-content/uploads/2021/07/zero.jpg"
+                      style="width: 115px; height: 140px"
+                    />
+                  </div>
+                  <div *ngSwitchCase="'2.Drink'">
+                    <img
+                      src="https://cdnsta.avansas.com/mnresize/300/-/urun/98629/fuse-tea-seftali-330cc-zoom-1.jpg"
+                      style="width: 115px; height: 140px"
+                    />
+                  </div>
+                  <div *ngSwitchCase="'3.Drink'">
+                    <img
+                      src="https://yousoon.az/wp-content/uploads/2021/08/grocerapp-sprite-lemon-lime-flavour-5ef5a519a4543.jpeg"
+                      style="width: 115px; height: 140px"
+                    />
+                  </div>
+                  <div *ngSwitchCase="'4.Drink'">
+                    <img
+                      src="https://hancionline.com/wp-content/uploads/2020/04/fanta.jpg"
+                      style="width: 115px; height: 140px"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <form class="my-login-validation">
+                <div class="form-group">
+                  <label for="email" class="food-name">Food Name:</label>
+                  <input
+                    class="form-control"
+                    name="food"
+                    (click)="ToggleMenu()"
+                  />
+                </div>
+
+                <div class="form-group m-0">
+                  <button class="btn btn-add" id="addButton">
+                    <label>Add</label>
+                  </button>
+
+                  <div class="menu-container">
+                    <div class="menu" *ngIf="!MenuOpened">
+                      <div class="menu-item">Pizza</div>
+                      <div class="menu-item">Burger</div>
+                      <div class="menu-item">Kabab</div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
